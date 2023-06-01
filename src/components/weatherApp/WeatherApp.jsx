@@ -11,6 +11,7 @@ const WeatherApp = () => {
     const [wind, setWind] = useState(0);
     const [city, setCity] = useState("");
     const [searchedCity, setSearchedCity] = useState("");
+    const [icon, setIcon] = useState("");
 
     const onClickHandler = async () => {
         try {
@@ -25,11 +26,14 @@ const WeatherApp = () => {
             setFeelsLikeTemp(data.main.feels_like);
             setHumidity(data.main.humidity);
             setWind(data.wind.speed);
-            setCity(data.name)
+            setCity(data.name);
+            setIcon(data.weather[0].icon);
             console.log(data)
         } catch (error) {
             console.log(error)
         }
+
+        
     }
 
     const onChangeHandler = (e) => {
@@ -38,16 +42,24 @@ const WeatherApp = () => {
     
     return (
       <div className="container">
-            <input placeholder="Enter city name" type="text" onChange={onChangeHandler} value={searchedCity} />
-            <button onClick={onClickHandler}>Get the weather</button>
-            <WeatherCard
-                city={city}
-                temperature={temperature}
-                descriptio={description}
-                feelsLikeTemp={feelsLikeTemp}
-                humidity={humidity}
-                wind={wind}
-            />
+        <input
+          placeholder="Enter city name"
+          type="text"
+          onChange={onChangeHandler}
+          value={searchedCity}
+        />
+        <button onClick={onClickHandler}>Get the weather</button>
+        {city && (
+          <WeatherCard
+            city={city}
+            temperature={temperature}
+            description={description}
+            feelsLikeTemp={feelsLikeTemp}
+            humidity={humidity}
+            wind={wind}
+            icon={icon}
+          />
+        )}
       </div>
     );
 }

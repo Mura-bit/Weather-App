@@ -1,20 +1,28 @@
+import React from "react";
 import "./weatherCard.style.css";
 
 const WeatherCard = (props) => {
 
-    const { city, temperature, description, feelsLikeTemp, humidity, wind } = props;
+    const { city, temperature, description, feelsLikeTemp, humidity, wind, icon } = props;
 
     return (
       <div className="card-container">
         <div className="cards">
-          <div>
-            <h3>{city}</h3>
+          <div className="temp-card">
+            <h3 className="city-name">{city}</h3>
+            <p className="temp">{temperature}</p>
+            <img
+              className="temp-img"
+              src={`http://openweathermap.org/img/w/${icon}.png`}
+              alt="weather"
+            />
           </div>
-          <p>Temperature: {temperature}</p>
-          <p>Description: {description}</p>
-          <p>Feelslike: {feelsLikeTemp}</p>
-          <p>Humidity: {humidity}</p>
-          <p>Wind: {wind}</p>
+          <div className="temp-card-desc">
+            <p className="temp-feels">Feelslike: {feelsLikeTemp}</p>
+            <p>{description}</p>
+            <p>Humidity: {humidity}</p>
+            <p>Wind: {wind}</p>
+          </div>
         </div>
       </div>
     );

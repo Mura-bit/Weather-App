@@ -1,28 +1,30 @@
 input {
-    margin-left: 50px;
-    width: 400px;
+    width: 475px;
     height: 60px;
     border-radius: 8px;
     font-size: 1.5rem;
     border: 2px solid rgb(162, 160, 160);
     background-color: #e7e7ed;
-    color: #070827;
+    color: #02388a;
+    font-weight: 600;
+    font-style:inherit;
+    outline-style: none;
 }
-
 
 button {
     margin-left: 5px;
     margin-bottom: 20px;
-    width: 190px;
+    width: 220px;
     height: 60px;
     border-radius: 8px;
     font-size: 1.5rem;
-    background-color: #66bae3;
-    color: rgb(27, 14, 14);
-    font-weight: bold;
+    background-color: #e7e7ed;
+    color: #02388a;
+    border: 1px solid white;
+    font-weight: 600;
 }
 
 button:hover {
-    color: rgb(0, 0, 0);
-    background-color: #e7e7ed;
+    color: rgb(255, 255, 255);
+    background-color: #51dffd;
 }

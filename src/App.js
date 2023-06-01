@@ -1,12 +1,12 @@
-
+import "../src/images/cloud.avif"
 import "./App.css";
 import WeatherApp from "./components/weatherApp/WeatherApp";
 
 function App() {
   return (
-    <div className="app-container">
-      <WeatherApp />
-    </div>
+      <div className="app-container">
+        <WeatherApp />
+      </div>
   );
 }
 
