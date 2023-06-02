@@ -28,3 +28,8 @@ button:hover {
     color: rgb(255, 255, 255);
     background-color: #51dffd;
 }
+
+p {
+    font-size: 2rem;
+    color: white;
+}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./weatherApp.style.css";
 import axios from "axios"; 
 import WeatherCard from "../weatherCard/WeatherCard.jsx";
+import { getDayOfWeek, getMonth } from "../utils/helperFunction";
 
 const WeatherApp = () => {
     const [temperature, setTemperature] = useState(0);
@@ -14,10 +15,13 @@ const WeatherApp = () => {
     const [icon, setIcon] = useState("");
 
 
-    const getSearchedCity = async ()=> {
+    const getSearchedCity = async () => {
+        const todaysDate = new Date();
+
+        console.log(todaysDate)
         try {
             const response = await axios.get(
-              `https://api.openweathermap.org/data/2.5/weather?q=${searchedCity}&units=imperial&appid=355cf3bff397cfe55bf144d10da9b2d8`
+              `https://api.openweathermap.org/data/2.5/weather?q=${searchedCity ? searchedCity : "Seattle"}&units=imperial&appid=355cf3bff397cfe55bf144d10da9b2d8`
             );
 
             const { data } = response;
@@ -37,11 +41,16 @@ const WeatherApp = () => {
 
     //square bracets for dependenses
     //when square bracets is emty it will run once at the work
+    //without square brakets it will run every time when state changes or page rerenders
 
     useEffect(
         () => {
             getSearchedCity();
         }, []);
+    
+    //Side efects
+
+
 
     const onChangeHandler = (e) => {
         setSearchedCity(e.target.value)
@@ -56,6 +65,8 @@ const WeatherApp = () => {
           value={searchedCity}
         />
         <button onClick={getSearchedCity}>Get the weather</button>
+            <p>Today is: {getDayOfWeek()}</p>
+            <p>Month is: {getMonth()}</p>
         {city && (
           <WeatherCard
             city={city}
