@@ -1,5 +1,6 @@
 import React from "react";
 import "./weatherCard.style.css";
+import WeatherFooter from "../weatherFooter/WeatherFooter";
 
 const WeatherCard = (props) => {
 
@@ -22,6 +23,9 @@ const WeatherCard = (props) => {
             <p>{description}</p>
             <p>Humidity: {humidity}</p>
             <p>Wind: {wind}</p>
+          </div>
+          <div>
+            {WeatherFooter}
           </div>
         </div>
       </div>

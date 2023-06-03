@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./weatherApp.style.css";
 import axios from "axios"; 
 import WeatherCard from "../weatherCard/WeatherCard.jsx";
-import { getDayOfWeek, getMonth } from "../utils/helperFunction";
+
 
 const WeatherApp = () => {
     const [temperature, setTemperature] = useState(0);
@@ -65,8 +65,6 @@ const WeatherApp = () => {
           value={searchedCity}
         />
         <button onClick={getSearchedCity}>Get the weather</button>
-            <p>Today is: {getDayOfWeek()}</p>
-            <p>Month is: {getMonth()}</p>
         {city && (
           <WeatherCard
             city={city}

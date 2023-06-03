@@ -76,4 +76,10 @@ const getMonth = () => {
     return todaysMonth;
 }
 
-export { getDayOfWeek, getMonth };
+
+const getTime = () => {
+    const todaysDay = new Date();
+    todaysDay.toLocaleTimeString();
+}
+
+export { getDayOfWeek, getMonth, getTime };
