@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./weatherApp.style.css";
 import axios from "axios"; 
 import WeatherCard from "../weatherCard/WeatherCard.jsx";
+import CounterApp from "./components/counterApp/CounterApp.jsx";
 
 
 const WeatherApp = () => {
@@ -76,6 +77,7 @@ const WeatherApp = () => {
             icon={icon}
           />
         )}
+        <CounterApp />
       </div>
     );
 }
